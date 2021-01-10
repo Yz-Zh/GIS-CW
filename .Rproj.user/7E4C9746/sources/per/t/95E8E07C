@@ -1,0 +1,26 @@
+{
+    "id": "95E8E07C",
+    "path": "~/gis-cw/Data Loading and Checking.R",
+    "project_path": "Data Loading and Checking.R",
+    "type": "r_source",
+    "hash": "1698762279",
+    "contents": "",
+    "dirty": false,
+    "created": 1610273178602.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "cursorPosition": "120,0",
+        "scrollLine": "0",
+        "ignored_words": "wardsinfo\n"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1610274011,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1610274011144,
+    "read_only": false,
+    "read_only_alternatives": []
+}
