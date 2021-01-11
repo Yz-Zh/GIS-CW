@@ -141,3 +141,29 @@ tm_shape(wardsinfo) +
               alpha = 0.65)
 
 ################
+
+#Sig 检验
+sigTest1 = abs(gwr.model$SDF$"population_density_persons_per_sq_km_2013")-2 * gwr.model$SDF$"population_density_persons_per_sq_km_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(popdensitySig = sigTest1)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "popdensitySig", 
+              palette = "RdYlBu")
+
+
+
+sigTest2 = abs(gwr.model$SDF$"open_space_with_access_rate_2013")-2 * gwr.model$SDF$"open_space_with_access_rate_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(openspaceSig = sigTest2)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "openspaceSig", 
+              palette = "RdYlBu")
+
+
+
+sigTest3 = abs(gwr.model$SDF$"median_household_income_2013")-2 * gwr.model$SDF$"median_household_income_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(incomeSig = sigTest3)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "incomeSig", 
+              palette = "RdYlBu")

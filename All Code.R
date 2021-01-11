@@ -438,7 +438,7 @@ qtm(wardsinfo, fill = "residuals", alpha=0.2)
 
 ##########
 
-#testing
+#Moran testing
 final_model_Moran <- wardsinfo %>%
   st_drop_geometry()%>%
   dplyr::select(residuals)%>%
@@ -508,6 +508,31 @@ tm_shape(wardsinfo) +
   tm_polygons(col = "coefopenspac", 
               palette = "RdYlBu", 
               alpha = 0.65)
+
+##########
+# Sig testing of population density
+sigTest1 = abs(gwr.model$SDF$"population_density_persons_per_sq_km_2013")-2 * gwr.model$SDF$"population_density_persons_per_sq_km_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(popdensitySig = sigTest1)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "popdensitySig", 
+              palette = "RdYlBu")
+
+#Sig testing of open space with access rate
+sigTest2 = abs(gwr.model$SDF$"open_space_with_access_rate_2013")-2 * gwr.model$SDF$"open_space_with_access_rate_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(openspaceSig = sigTest2)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "openspaceSig", 
+              palette = "RdYlBu")
+
+#Sig testing of household income
+sigTest3 = abs(gwr.model$SDF$"median_household_income_2013")-2 * gwr.model$SDF$"median_household_income_2013_se"
+wardsinfo <- wardsinfo %>%
+  mutate(incomeSig = sigTest3)
+tm_shape(wardsinfo) +
+  tm_polygons(col = "incomeSig", 
+              palette = "RdYlBu")
 
 ##########
 
